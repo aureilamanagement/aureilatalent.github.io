@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aureila Talent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #0a0a0a;
+    --cream: #f5f0e8;
+    --white: #ffffff;
+    --gold: #b8973a;
+    --gold-subtle: rgba(184, 151, 58, 0.5);
+    --text-muted: #6b6457;
+    --border: rgba(255,255,255,0.08);
+    --border-gold: rgba(184, 151, 58, 0.18);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--cream); font-family: 'Inter', sans-serif; font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 4rem; background: rgba(10,10,10,0.94); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; letter-spacing: 0.3em; color: var(--white); text-decoration: none; text-transform: uppercase; }
+  .nav-logo span { color: var(--gold); font-size: 0.62rem; letter-spacing: 0.25em; display: block; margin-top: -2px; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { color: var(--cream); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.55; transition: opacity 0.2s; }
+  .nav-links a:hover { opacity: 1; }
+  .nav-cta { opacity: 1 !important; color: var(--gold) !important; border: 0.5px solid var(--border-gold); padding: 0.45rem 1.2rem; transition: background 0.2s, color 0.2s !important; }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--black) !important; }
+
+  /* LAYOUT */
+  section { padding: 7rem 4rem; max-width: 1200px; margin: 0 auto; }
+  .divider { width: 100%; height: 0.5px; background: var(--border); max-width: 1200px; margin: 0 auto; }
+
+  /* HERO */
+  #hero { min-height: 100vh; max-width: 100%; padding: 0; display: flex; align-items: center; justify-content: center; text-align: center; }
+  .hero-inner { padding: 0 2rem; }
+  .hero-eyebrow { font-size: 0.62rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--gold); margin-bottom: 2.5rem; }
+  .hero-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(4rem, 9vw, 7.5rem); font-weight: 300; line-height: 0.95; letter-spacing: 0.04em; color: var(--white); margin-bottom: 1.75rem; }
+  .hero-headline em { font-style: italic; color: var(--cream); }
+  .hero-sub { font-size: 0.88rem; color: var(--text-muted); max-width: 420px; margin: 0 auto 3.5rem; line-height: 1.85; }
+  .hero-divider { width: 1px; height: 56px; background: linear-gradient(to bottom, var(--gold), transparent); margin: 0 auto 2.5rem; }
+  .btn-primary { display: inline-block; background: transparent; border: 0.5px solid var(--border-gold); color: var(--gold); font-family: 'Inter', sans-serif; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; padding: 1rem 2.5rem; transition: background 0.25s, color 0.25s; }
+  .btn-primary:hover { background: var(--gold); color: var(--black); }
+
+  /* ABOUT */
+  #about { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .about-label { font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .about-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.12; color: var(--white); margin-bottom: 2rem; }
+  .about-headline em { font-style: italic; color: var(--cream); }
+  .about-body { color: var(--text-muted); line-height: 1.95; font-size: 0.88rem; }
+  .about-body p + p { margin-top: 1rem; }
+  .about-values { display: flex; flex-direction: column; gap: 1.75rem; }
+  .value-item { border-left: 0.5px solid var(--gold-subtle); padding-left: 1.5rem; }
+  .value-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--white); margin-bottom: 0.3rem; }
+  .value-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.75; }
+
+  /* SERVICES */
+  #services { text-align: center; }
+  .section-label { font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .section-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 300; color: var(--white); margin-bottom: 1rem; line-height: 1.12; }
+  .section-headline em { font-style: italic; color: var(--cream); }
+  .section-sub { font-size: 0.85rem; color: var(--text-muted); max-width: 480px; margin: 0 auto 4rem; line-height: 1.85; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 0.5px solid var(--border); }
+  .service-card { padding: 2.5rem 2rem; border-right: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); text-align: left; transition: background 0.2s; }
+  .service-card:nth-child(3n) { border-right: none; }
+  .service-card:nth-last-child(-n+3) { border-bottom: none; }
+  .service-card:hover { background: rgba(255,255,255,0.02); }
+  .service-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold); opacity: 0.25; line-height: 1; margin-bottom: 1rem; }
+  .service-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 400; color: var(--white); margin-bottom: 0.75rem; }
+  .service-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.8; }
+
+  /* CAREERS */
+  #careers { text-align: center; }
+  .careers-grid { display: grid; grid-template-columns: repeat(2, 1fr); border: 0.5px solid var(--border); margin-top: 3rem; text-align: left; }
+  .career-item { padding: 2.25rem 2.5rem; border-right: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
+  .career-item:nth-child(2n) { border-right: none; }
+  .career-item:nth-last-child(-n+2) { border-bottom: none; }
+  .career-role { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 0.4rem; }
+  .career-type { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .career-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.75; }
+
+  /* APPLY */
+  #apply { max-width: 660px; }
+  .form-group { margin-bottom: 1.75rem; }
+  .form-label { display: block; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); opacity: 0.7; margin-bottom: 0.65rem; }
+  .form-label span { opacity: 0.5; font-size: 0.62rem; }
+  .form-input, .form-textarea, .form-select { width: 100%; background: transparent; border: none; border-bottom: 0.5px solid var(--border); color: var(--cream); font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 300; padding: 0.75rem 0; outline: none; transition: border-color 0.2s; appearance: none; }
+  .form-input:focus, .form-textarea:focus, .form-select:focus { border-bottom-color: rgba(255,255,255,0.3); }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(107,100,87,0.45); }
+  .form-textarea { resize: none; min-height: 90px; line-height: 1.75; }
+  .form-select option { background: #111; color: var(--cream); }
+  .form-submit { display: inline-block; background: transparent; border: 0.5px solid var(--border-gold); color: var(--gold); font-family: 'Inter', sans-serif; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; padding: 1rem 3rem; cursor: pointer; transition: background 0.25s, color 0.25s; margin-top: 0.75rem; }
+  .form-submit:hover { background: var(--gold); color: var(--black); }
+  .form-note { font-size: 0.75rem; color: var(--text-muted); margin-top: 1.25rem; line-height: 1.7; }
+
+  /* FOOTER */
+  footer { border-top: 0.5px solid var(--border); padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--white); opacity: 0.3; }
+  .footer-note { font-size: 0.7rem; color: var(--text-muted); }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a { font-size: 0.7rem; color: var(--text-muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.25rem 1.5rem; }
+    .nav-links { gap: 1rem; }
+    section { padding: 4.5rem 1.5rem; }
+    #about { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { border-right: none !important; }
+    .careers-grid { grid-template-columns: 1fr; }
+    .career-item { border-right: none !important; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">Aureila<span>Talent</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#careers">Careers</a></li>
+    <li><a href="#apply" class="nav-cta">Apply</a></li>
+  </ul>
+</nav>
+
+<div id="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Female-led creator management</p>
+    <h1 class="hero-headline">Your talent.<br><em>Our dedication.</em></h1>
+    <p class="hero-sub">We work with a select number of creators at a time — because you deserve an agency that actually knows your name.</p>
+    <div class="hero-divider"></div>
+    <a href="#apply" class="btn-primary">Work with us</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section id="about">
+  <div>
+    <p class="about-label">Who we are</p>
+    <h2 class="about-headline">Built by someone who <em>refused</em> to accept the standard.</h2>
+    <div class="about-body">
+      <p>Most agencies treat creators like a number on a spreadsheet. High splits, vague contracts, and a team that disappears after onboarding.</p>
+      <p>Aureila exists because that isn't good enough. We are full-service, female-led, and built around one belief — that your success should never come at the cost of your comfort.</p>
+      <p>You can have boundaries and still build an empire.</p>
+    </div>
+  </div>
+  <div class="about-values">
+    <div class="value-item">
+      <p class="value-title">Creator-first, always</p>
+      <p class="value-desc">Every decision we make starts with what's best for you — not what's easiest for us.</p>
+    </div>
+    <div class="value-item">
+      <p class="value-title">Transparent by default</p>
+      <p class="value-desc">Fair splits. Clear contracts. No hidden clauses, no pressure, no surprises.</p>
+    </div>
+    <div class="value-item">
+      <p class="value-title">Boundaries are not barriers</p>
+      <p class="value-desc">Saying no to content you're uncomfortable with will never affect how hard we work for you.</p>
+    </div>
+    <div class="value-item">
+      <p class="value-title">Limited roster, full attention</p>
+      <p class="value-desc">We work with a small number of creators so that every single one gets our full focus.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="services">
+  <p class="section-label">What we offer</p>
+  <h2 class="section-headline">Full-service management.<br><em>Nothing left to chance.</em></h2>
+  <p class="section-sub">We handle the strategy, the growth, and the day-to-day so you can focus on creating.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <p class="service-title">Growth & Traffic</p>
+      <p class="service-desc">Reddit strategy, platform growth, audience acquisition and funnel optimisation. We find your people and bring them to you.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <p class="service-title">Content Strategy</p>
+      <p class="service-desc">Content calendars, posting schedules, and creative direction tailored to your brand and your boundaries.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <p class="service-title">Chat Management</p>
+      <p class="service-desc">A dedicated team handling your audience interactions — keeping engagement high and income consistent, around the clock.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <p class="service-title">Brand Development</p>
+      <p class="service-desc">From your persona to your aesthetic — we help you build something that's distinctly, recognisably you.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <p class="service-title">Revenue Optimisation</p>
+      <p class="service-desc">Pricing strategy, upsells, and audience retention — maximising the value of what you already have.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <p class="service-title">Creator Protection</p>
+      <p class="service-desc">DMCA takedowns, content watermarking, account security and audience screening. We keep you safe.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="careers">
+  <p class="section-label">Careers</p>
+  <h2 class="section-headline">Join the <em>team</em> behind the team.</h2>
+  <p class="section-sub">We're always looking for talented, discreet, and driven people to grow with us.</p>
+  <div class="careers-grid">
+    <div class="career-item">
+      <p class="career-role">Chat Manager</p>
+      <p class="career-type">Remote · Part-time or Full-time</p>
+      <p class="career-desc">Experienced communicators who know how to build genuine audience connections, drive engagement, and represent creators with care and consistency.</p>
+    </div>
+    <div class="career-item">
+      <p class="career-role">Traffic & Growth Specialist</p>
+      <p class="career-type">Remote · Freelance</p>
+      <p class="career-desc">Reddit growth, social media traffic strategy, and funnel building. You know how to find an audience and move them.</p>
+    </div>
+    <div class="career-item">
+      <p class="career-role">Creator Manager</p>
+      <p class="career-type">Remote · Part-time</p>
+      <p class="career-desc">The main point of contact for a roster of creators. Organised, empathetic, solutions-focused. You understand this industry and you care about the people in it.</p>
+    </div>
+    <div class="career-item">
+      <p class="career-role">General Enquiry</p>
+      <p class="career-type">Remote · Open</p>
+      <p class="career-desc">Don't see your role? If you think you belong here, reach out. We're building something and we're open to people who get it.</p>
+    </div>
+  </div>
+  <p style="margin-top: 2rem; font-size: 0.8rem; color: var(--text-muted);">To apply for a team role, email <span style="color: var(--gold);">team@aureilatalent.com</span> with your experience and what you're looking for.</p>
+</section>
+
+<div class="divider"></div>
+
+<section id="apply">
+  <p class="section-label">Work with Aureila Talent</p>
+  <h2 class="section-headline">Let's talk about<br><em>what you're building.</em></h2>
+  <p class="section-sub" style="text-align:left; margin-left:0;">We work with a limited number of creators at a time. Please tell us about yourself below and we'll be in touch within 24 hours. Everything you share is completely confidential.</p>
+
+  <form onsubmit="handleSubmit(event)" style="margin-top: 2.5rem;">
+    <div class="form-group">
+      <label class="form-label" for="f-name">What's your name? <span>*</span></label>
+      <input class="form-input" type="text" id="f-name" required placeholder="Your name">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="f-email">What's your email address? <span>*</span></label>
+      <input class="form-input" type="email" id="f-email" required placeholder="your@email.com">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="f-handle">What is your Instagram / TikTok handle? <span>*</span></label>
+      <input class="form-input" type="text" id="f-handle" required placeholder="@yourhandle">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="f-income">What is your approximate monthly income so far? <span>*</span></label>
+      <select class="form-select" id="f-income" required>
+        <option value="" disabled selected>Select a range</option>
+        <option>Just starting out — under £500/month</option>
+        <option>£500 – £1,500/month</option>
+        <option>£1,500 – £3,000/month</option>
+        <option>£3,000 – £5,000/month</option>
+        <option>£5,000+/month</option>
+        <option>Prefer not to say</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="f-about">Tell us about yourself and your brand <span>*</span></label>
+      <textarea class="form-textarea" id="f-about" required placeholder="Who are you, what do you create, what makes you different..."></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="f-goals">What are your current goals, and what do you feel is limiting your growth right now? <span>*</span></label>
+      <textarea class="form-textarea" id="f-goals" required placeholder="Be as honest as you like — this helps us understand if we're the right fit for each other."></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="f-ref">How did you find Aureila? <span style="opacity:0.45; font-size:0.62rem; text-transform:none; letter-spacing:0;">(optional)</span></label>
+      <input class="form-input" type="text" id="f-ref" placeholder="Instagram, referral, Reddit...">
+    </div>
+    <button type="submit" class="form-submit">Submit application</button>
+    <p class="form-note">We review every application personally. If we think we're a good fit, you'll hear from us within 24 hours.</p>
+  </form>
+</section>
+
+<footer>
+  <p class="footer-logo">Aureila Talent</p>
+  <p class="footer-note">© 2026 Aureila Talent. All rights reserved.</p>
+  <ul class="footer-links">
+    <li><a href="https://instagram.com/aureilamanagement" target="_blank">Instagram</a></li>
+    <li><a href="mailto:hello@aureilatalent.com">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = "Submitted — we'll be in touch.";
+  btn.style.background = 'var(--gold)';
+  btn.style.color = 'var(--black)';
+  btn.disabled = true;
+}
+</script>
+</body>
+</html>
