@@ -106,9 +106,19 @@
   .footer-links a { font-size: 0.7rem; color: var(--text-muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
   .footer-links a:hover { color: var(--white); }
 
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 22px; height: 1px; background: var(--cream); transition: all 0.25s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
   @media (max-width: 768px) {
     nav { padding: 1.25rem 1.5rem; }
-    .nav-links { gap: 1rem; }
+    .hamburger { display: flex; }
+    .nav-links { display: none; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: rgba(10,10,10,0.98); padding: 2rem 1.5rem; gap: 1.5rem; border-bottom: 0.5px solid var(--border); }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 0.9rem; opacity: 0.7; }
+    .nav-cta { padding: 0.75rem 0 !important; display: inline-block; }
     section { padding: 4.5rem 1.5rem; }
     #about { grid-template-columns: 1fr; gap: 3rem; }
     .services-grid { grid-template-columns: 1fr; }
@@ -123,6 +133,7 @@
 
 <nav>
   <a href="#hero" class="nav-logo">Aureila<span>Talent</span></a>
+  <button class="hamburger" onclick="this.classList.toggle('open'); document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
@@ -251,22 +262,22 @@
   <h2 class="section-headline">Let's talk about<br><em>what you're building.</em></h2>
   <p class="section-sub" style="text-align:left; margin-left:0;">We work with a limited number of creators at a time. Please tell us about yourself below and we'll be in touch within 24 hours. Everything you share is completely confidential.</p>
 
-  <form onsubmit="handleSubmit(event)" style="margin-top: 2.5rem;">
+  <form action="https://formspree.io/f/xgobgpzw" method="POST" style="margin-top: 2.5rem;">
     <div class="form-group">
       <label class="form-label" for="f-name">What's your name? <span>*</span></label>
-      <input class="form-input" type="text" id="f-name" required placeholder="Your name">
+      <input class="form-input" type="text" id="f-name" name="name" required placeholder="Your name">
     </div>
     <div class="form-group">
       <label class="form-label" for="f-email">What's your email address? <span>*</span></label>
-      <input class="form-input" type="email" id="f-email" required placeholder="your@email.com">
+      <input class="form-input" type="email" id="f-email" name="email" required placeholder="your@email.com">
     </div>
     <div class="form-group">
       <label class="form-label" for="f-handle">What is your Instagram / TikTok handle? <span>*</span></label>
-      <input class="form-input" type="text" id="f-handle" required placeholder="@yourhandle">
+      <input class="form-input" type="text" id="f-handle" name="handle" required placeholder="@yourhandle">
     </div>
     <div class="form-group">
       <label class="form-label" for="f-income">What is your approximate monthly income so far? <span>*</span></label>
-      <select class="form-select" id="f-income" required>
+      <select class="form-select" id="f-income" name="monthly_income" required>
         <option value="" disabled selected>Select a range</option>
         <option>Just starting out — under £500/month</option>
         <option>£500 – £1,500/month</option>
@@ -278,15 +289,15 @@
     </div>
     <div class="form-group">
       <label class="form-label" for="f-about">Tell us about yourself and your brand <span>*</span></label>
-      <textarea class="form-textarea" id="f-about" required placeholder="Who are you, what do you create, what makes you different..."></textarea>
+      <textarea class="form-textarea" id="f-about" name="about" required placeholder="Who are you, what do you create, what makes you different..."></textarea>
     </div>
     <div class="form-group">
       <label class="form-label" for="f-goals">What are your current goals, and what do you feel is limiting your growth right now? <span>*</span></label>
-      <textarea class="form-textarea" id="f-goals" required placeholder="Be as honest as you like — this helps us understand if we're the right fit for each other."></textarea>
+      <textarea class="form-textarea" id="f-goals" name="goals" required placeholder="Be as honest as you like — this helps us understand if we're the right fit for each other."></textarea>
     </div>
     <div class="form-group">
       <label class="form-label" for="f-ref">How did you find Aureila? <span style="opacity:0.45; font-size:0.62rem; text-transform:none; letter-spacing:0;">(optional)</span></label>
-      <input class="form-input" type="text" id="f-ref" placeholder="Instagram, referral, Reddit...">
+      <input class="form-input" type="text" id="f-ref" name="referral" placeholder="Instagram, referral, Reddit...">
     </div>
     <button type="submit" class="form-submit">Submit application</button>
     <p class="form-note">We review every application personally. If we think we're a good fit, you'll hear from us within 24 hours.</p>
