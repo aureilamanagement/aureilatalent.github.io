@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free account audit | Aureila Talent</title>
+<meta name="description" content="Book a free account audit with Aureila Talent. Find out what is holding back your growth.">
+<meta name="theme-color" content="#0a080b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23ee86c4' d='M16 1l3.5 11.5L31 16l-11.5 3.5L16 31l-3.5-11.5L1 16l11.5-3.5z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bodoni+Moda:ital,wght@0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="index.html" aria-label="Aureila Talent, home"><span class="b1">Aureila</span><span class="b2">Talent</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main"><a href="index.html">Home</a><a href="values.html">Our values</a><a href="faq.html">FAQ</a><a href="apply.html" class="btn btn-ghost small">Apply to work with us</a><a href="audit.html" class="btn btn-primary small">Free account audit</a></nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="page-hero">
+  <div class="narrow reveal">
+    <span class="kicker">free, 15 minutes, no obligation</span>
+    <h1>Book your free <em>account audit</em></h1>
+    <p class="lead">Answer five quick questions and tell us where to reach you. We will look at what is holding back your growth on your main traffic platform and get back to you.</p>
+  </div>
+</section>
+<section style="padding-top:10px">
+  <div class="narrow">
+    <div class="quiz">
+      <div class="progress" aria-hidden="true"><i id="quiz-bar"></i></div>
+      <div id="quiz-root"><div id="quiz-q" aria-live="polite"></div></div>
+      <div id="result" class="hidden">
+        <div class="result-box">
+          <h3 id="res-title"></h3>
+          <p id="res-text"></p>
+        </div>
+        <form class="form" id="audit-form" data-form data-subject="Free account audit request" data-thanks="audit-thanks">
+          <input type="hidden" name="form_type" value="Free account audit">
+          <input type="hidden" name="platform" id="h-platform">
+          <input type="hidden" name="audience" id="h-audience">
+          <input type="hidden" name="blocker" id="h-blocker">
+          <input type="hidden" name="account" id="h-account">
+          <input type="hidden" name="visibility" id="h-visibility">
+          <label class="f">What should we call you?<small>A stage name or first name is completely fine.</small>
+            <input type="text" name="name" required autocomplete="off"></label>
+          <label class="f">Email<input type="email" name="email" required autocomplete="email"></label>
+          <label class="f">Link to your main traffic profile <small>Optional, but it lets us make the audit specific to you.</small>
+            <input type="url" name="profile_link" placeholder="https://"></label>
+          <label class="f">Anything else we should know? <small>Optional.</small>
+            <textarea name="notes"></textarea></label>
+          <p class="consent">By sending this you agree to us contacting you about your audit. We use your details only for that. See our <a href="privacy.html">privacy policy</a>.</p>
+          <p class="form-msg" role="status"></p>
+          <button class="btn btn-primary" type="submit">Request my free audit</button>
+        </form>
+        <div id="audit-thanks" class="thanks hidden">
+          <h3>Thank you, we have got it.</h3>
+          <p>We will be in touch by email with your audit. If you would rather jump straight on a call, you can book one now.</p>
+          <a class="btn btn-primary" data-call href="#">Book a free 15 minute call</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="index.html"><span class="b1">Aureila</span><span class="b2">Talent</span></a>
+        <p class="slogan">by women, for women</p>
+      </div>
+      <ul>
+        <li><a href="values.html">Our values</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="audit.html">Free account audit</a></li>
+        <li><a href="apply.html">Apply</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="mailto:Aureilamanagement@outlook.com">Aureilamanagement@outlook.com</a></li>
+      </ul>
+    </div>
+    <p class="fine">&copy; <span data-year>2026</span> Aureila Talent. All rights reserved.</p>
+  </div>
+</footer>
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
